@@ -1,18 +1,19 @@
-public class Sort{
+import java.util.Arrays;
+import java.util.Random;
 
-    public static void sort(int[] a){
-        for (int i = 1; i < a.length; ++i){
-            int value = a[i];
-            int j;
-            for(j = i -1; j>=0; --j){
-                if(a[j] > value){
-                    a[j + 1] = a[j];
-                }
-                else{
-                    break;
-                }
-                a[j+1] = value;
-            }
-        }
+public class Main {
+
+    static int[] createArray(int size, int minValue, int maxValue) {
+        Random random = new Random();
+        int[] a = new int[size];
+        for (int i = 0; i < a.length; ++i)
+            a[i] = random.nextInt(maxValue - minValue + 1) + 1;
+        return a;
+    }
+
+    public static void main(String[] args) {
+        int[] a = createArray(10, 1, 10);
+        Sort.sort(a);
+        System.out.println(Arrays.toString(a));
     }
 }
